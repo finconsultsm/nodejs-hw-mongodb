@@ -35,7 +35,7 @@ export const getAllContactsController = async (req, res) => {
 
 // GET by ID
 export const getContactByIdController = async (req, res) => {
-  const id = req.params.contactId;
+  const id = req.params.id;
   const userId = req.user._id;
   const contact = await getContactById(id, userId);
 
@@ -65,7 +65,7 @@ export const createContactController = async (req, res) => {
 
 // DELETE
 export const deleteContactController = async (req, res) => {
-  const id = req.params.contactId;
+  const id = req.params.id;
   const userId = req.user._id;
   const contact = await deleteContact(id, userId);
 
@@ -78,7 +78,7 @@ export const deleteContactController = async (req, res) => {
 
 // PATCH
 export const patchContactController = async (req, res) => {
-  const id = req.params.contactId;
+  const id = req.params.id;
   const userId = req.user._id;
   const contact = await updateContact(id, req.body, userId);
 

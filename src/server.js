@@ -3,6 +3,7 @@ import cors from 'cors';
 import pino from 'pino-http';
 import contactsRouter from './routes/contacts.js';
 import authRouter from './routes/auth.js';
+import cookieParser from 'cookie-parser';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 
@@ -12,6 +13,7 @@ const logger = pino();
 app.use(logger);
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
 
 app.use(authRouter);
 app.use(contactsRouter);
